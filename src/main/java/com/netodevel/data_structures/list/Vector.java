@@ -27,6 +27,13 @@ public class Vector {
         }
     }
 
+    public Object get(int index) {
+        if (!(index >= 0 && index < size)) {
+            throw new IllegalArgumentException("ops");
+        }
+        return elements[index];
+    }
+
     public void addMoreFast(Object element) {
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
