@@ -18,7 +18,8 @@ public class Vector {
      *
      * @param element
      */
-    public void add(Object element) {
+    @Deprecated
+    public void addDeprecated(Object element) {
         for (int i = 0; i < elements.length; i++) {
             if (Objects.isNull(elements[i])) {
                 elements[i] = element;
@@ -34,7 +35,7 @@ public class Vector {
         return elements[index];
     }
 
-    public void addMoreFast(Object element) {
+    public void add(Object element) {
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
             this.size++;
