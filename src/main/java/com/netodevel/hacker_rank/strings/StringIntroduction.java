@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class StringIntroduction {
 
     public static void main(String[] args) {
-
         var scanner = new Scanner(System.in);
         var a = scanner.next();
         var b = scanner.next();
