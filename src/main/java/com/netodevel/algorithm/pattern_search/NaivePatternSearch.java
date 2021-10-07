@@ -16,21 +16,23 @@ public class NaivePatternSearch {
     public boolean matchPattern(String input, String text) {
         char[] inputChar = input.toCharArray();
         char[] textChar = text.toCharArray();
-
-        int totalCharMatch = 0;
+        boolean founded = false;
 
         for (int i = 0; i < textChar.length; i++) {
             for (int j = 0; j < inputChar.length; j++) {
-                if (i + 1 > textChar.length - 1) break;
-                if (inputChar[j] != textChar[i + 1]) {
+                if (inputChar[j] != textChar[j + i]) {
                     break;
                 }
-                if (totalCharMatch == textChar.length) {
+                if (j == (inputChar.length - 1)) {
+                    founded = true;
+                    System.out.println("pattern found at index: " + i);
+                    break;
                 }
-                totalCharMatch++;
+            }
+            if (founded) {
+                break;
             }
         }
-
-        return totalCharMatch == textChar.length;
+        return founded;
     }
 }
