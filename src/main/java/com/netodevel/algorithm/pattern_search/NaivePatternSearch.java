@@ -35,4 +35,25 @@ public class NaivePatternSearch {
         }
         return founded;
     }
+
+
+    public boolean lessMemoryMatchPattern(String input, String text) {
+        boolean founded = false;
+
+        for (int i = 0; i <= text.length() - input.length(); i++) {
+            int j;
+            for (j = 0; j < input.length(); j++) {
+                if (text.charAt(i + j) != input.charAt(j)) {
+                    break;
+                }
+                if (j == input.length() - 1) {
+                    founded = true;
+                    System.out.println("Pattern found at index: " + i);
+                }
+            }
+        }
+
+        return founded;
+    }
+
 }

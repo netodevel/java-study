@@ -2,6 +2,7 @@ package com.netodevel.algorithm.pattern_search;
 
 import com.jerolba.jmnemohistosyne.Histogramer;
 import com.jerolba.jmnemohistosyne.MemoryHistogram;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +20,8 @@ class NaivePatternSearchTest {
 
     @Test
     public void shouldMatchPattern() {
-        var text = "THIS IS A TEST TEXT";
-        var input = "TEXT";
+        var text = "this is a test text";
+        var input = "text";
 
         boolean result = naivePatternSearch.matchPattern(input, text);
         assertTrue(result);
@@ -33,6 +34,24 @@ class NaivePatternSearchTest {
         boolean result = naivePatternSearch.matchPattern(input, text);
 
         assertFalse(result);
+    }
+
+    @Test
+    public void shouldMatch() {
+        var text = "this is a test text";
+        var input = "text";
+
+        boolean result = naivePatternSearch.lessMemoryMatchPattern(input, text);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void notMatch() {
+        var text = "this is a test text";
+        var input = "exp";
+
+        boolean result = naivePatternSearch.lessMemoryMatchPattern(input, text);
+        Assertions.assertFalse(result);
     }
 
     //TODO: how to measure memory and performance a method java?
